@@ -1,0 +1,61 @@
+.button-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 10px;
+  justify-items: center;
+}
+
+.btn-custom {
+  position: relative;
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  color: white; /* White text */
+  padding: 0; /* No padding */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px; /* Smaller font size */
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 10px; /* Adjusted border-radius */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Hide overflow */
+  width: var(--btn-width, 150px); /* Adjustable width */
+  height: var(--btn-height, 150px); /* Adjustable height */
+}
+
+.btn-custom img {
+  width: 100%; /* Adjusted width */
+  height: 100%; /* Adjusted height */
+  border-radius: 10px; /* Adjusted border-radius */
+}
+
+.btn-custom .btn-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 5px 10px; /* Adjusted padding */
+  border-radius: 5px; /* Adjusted border-radius */
+  font-size: 12px; /* Smaller font size for text */
+}
+
+.btn-custom:hover .btn-text {
+  opacity: 1; /* Show text on hover */
+}
+
+.btn-custom:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.custom-nav {
+  position: absolute;
+  top: 23px;
+  left: 700px;
+  background-color: transparent;
+}

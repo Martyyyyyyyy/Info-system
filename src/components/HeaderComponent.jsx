@@ -1,33 +1,52 @@
+// HeaderComponent.js
+
 import React from 'react';
-import { AiOutlineMail, AiOutlinePhone, AiOutlineBulb, AiOutlineAppstore } from 'react-icons/ai';
+import { AiOutlineMail, AiOutlineGlobal, AiOutlineInfoCircle, AiOutlineUser, AiOutlineSetting, AiOutlineLogout } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import homeImage from './home.avif';
+import backgroundHeader from './backgroundHeader.avif';
+import profileImage from './profile.jpeg'; // Assume you have a profile image
 import ReportButton from './ReportButton'; // Import ReportButton component
-import './App.css'; // Make sure to import the updated CSS file
+import './Header.css';
 
 const HeaderComponent = () => {
   return (
     <div>
-      <header className='custom-header-bar'>
-        <div className='header-content'>
-          <div className='header-title'>
-            <AiOutlineBulb className='header-icon' />
-            <span>Інформаційна система обліку товарів</span>
-          </div>
-          <div className='contact-info'>
-            <div>
-              <AiOutlinePhone /> +1 (123) 456-7890
+      <header className='new-header' style={{ backgroundImage: `url(${backgroundHeader})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className='header-bg'>
+          <div className='header-content'>
+            <div className='contact-info'>
+              <div className='contact-item'>
+                <AiOutlineGlobal />
+                <span>Поставки зі всього світу</span>
+              </div>
+              <div className='contact-item'>
+                <AiOutlineMail />
+                <span>Зв'язок з нами: info@gmail.com</span>
+              </div>
+              <div className='contact-item'>
+                <AiOutlineInfoCircle />
+                <span>Допомога</span>
+              </div>
             </div>
-            <div>
-              <AiOutlineMail /> info@example.com
+            <div className='header-title'>
+              <span className='title-text'>Інформаційна система обліку товарів</span>
+            </div>
+            <div className='profile-section'>
+              <img src={profileImage} alt="Profile" className='profile-photo' />
+              <span className='profile-text'>My Profile</span>
+              <AiOutlineUser className='profile-icon' />
+              <AiOutlineSetting className='profile-icon' />
+              <AiOutlineLogout className='profile-icon' />
             </div>
           </div>
         </div>
       </header>
-      <nav className='custom-nav'>
-        <Link to='/' className='btn-custom'>
-          <AiOutlineAppstore /> На головну
+      <nav className='new-nav'>
+        <Link to='/' className='btn-home' style={{ backgroundImage: `url(${homeImage})` }}>
+          <span className='btn-text'>На головну</span>
         </Link>
-        <ReportButton text="Оформити звіт" /> {/* Include the ReportButton component here */}
+        <ReportButton text="Оформити звіт" small />
       </nav>
     </div>
   );

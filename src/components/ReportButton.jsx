@@ -13,27 +13,7 @@ const ReportButton = ({ text }) => {
 
   const handleGenerateReport = () => {
     console.log('Генерація звіту...');
-    let profit = 0; // Placeholder for actual profit calculation logic
-
-    if (reportType === 'Настільні комп’ютери') {
-      profit = calculateProfit('Настільні комп’ютери', period);
-    } else if (reportType === 'Вхідні пристрої') {
-      profit = calculateProfit('Вхідні пристрої', period);
-    } else if (reportType === 'Пристрої пам’яті') {
-      profit = calculateProfit('Пристрої пам’яті', period);
-    } else if (reportType === 'Монітори') {
-      profit = calculateProfit('Монітори', period);
-    } else if (reportType === 'Ноутбуки') {
-      profit = calculateProfit('Ноутбуки', period);
-    } else if (reportType === 'Блоки живлення') {
-      profit = calculateProfit('Блоки живлення', period);
-    } else if (reportType === 'Принтери') {
-      profit = calculateProfit('Принтери', period);
-    } else if (reportType === 'Процесори') {
-      profit = calculateProfit('Процесори', period);
-    } else if (reportType === 'Планшети') {
-      profit = calculateProfit('Планшети', period);
-    }
+    let profit = calculateProfit(reportType, period);
 
     setResultMessage(`Прибуток за цей період становить: ${profit} грн.`);
     setResultModal(true);
@@ -41,109 +21,18 @@ const ReportButton = ({ text }) => {
   };
 
   const calculateProfit = (type, period) => {
-    switch (type) {
-      case 'Настільні комп’ютери':
-        switch (period) {
-          case 'День':
-            return 10059;
-          case 'Тиждень':
-            return 70413;
-          case 'Місяць':
-            return 300000;
-          default:
-            return 0;
-        }
-      case 'Вхідні пристрої':
-        switch (period) {
-          case 'День':
-            return 4934;
-          case 'Тиждень':
-            return 34538;
-          case 'Місяць':
-            return 150000;
-          default:
-            return 0;
-        }
-      case 'Пристрої пам’яті':
-        switch (period) {
-          case 'День':
-            return 8710;
-          case 'Тиждень':
-            return 60970;
-          case 'Місяць':
-            return 260000;
-          default:
-            return 0;
-        }
-      case 'Монітори':
-        switch (period) {
-          case 'День':
-            return 4510;
-          case 'Тиждень':
-            return 31570;
-          case 'Місяць':
-            return 135000;
-          default:
-            return 0;
-        }
-      case 'Ноутбуки':
-        switch (period) {
-          case 'День':
-            return 3000;
-          case 'Тиждень':
-            return 21000;
-          case 'Місяць':
-            return 90000;
-          default:
-            return 0;
-        }
-      case 'Блоки живлення':
-        switch (period) {
-          case 'День':
-            return 4000;
-          case 'Тиждень':
-            return 28000;
-          case 'Місяць':
-            return 120000;
-          default:
-            return 0;
-        }
-      case 'Принтери':
-        switch (period) {
-          case 'День':
-            return 10000;
-          case 'Тиждень':
-            return 70000;
-          case 'Місяць':
-            return 300000;
-          default:
-            return 0;
-        }
-      case 'Процесори':
-        switch (period) {
-          case 'День':
-            return 6000;
-          case 'Тиждень':
-            return 42000;
-          case 'Місяць':
-            return 180000;
-          default:
-            return 0;
-        }
-      case 'Планшети':
-        switch (period) {
-          case 'День':
-            return 6400;
-          case 'Тиждень':
-            return 44800;
-          case 'Місяць':
-            return 192000;
-          default:
-            return 0;
-        }
-      default:
-        return 0;
-    }
+    const profits = {
+      'Настільні комп’ютери': { День: 10059, Тиждень: 70413, Місяць: 300000 },
+      'Вхідні пристрої': { День: 4934, Тиждень: 34538, Місяць: 150000 },
+      'Пристрої пам’яті': { День: 8710, Тиждень: 60970, Місяць: 260000 },
+      'Монітори': { День: 4510, Тиждень: 31570, Місяць: 135000 },
+      'Ноутбуки': { День: 3000, Тиждень: 21000, Місяць: 90000 },
+      'Блоки живлення': { День: 4000, Тиждень: 28000, Місяць: 120000 },
+      'Принтери': { День: 10000, Тиждень: 70000, Місяць: 300000 },
+      'Процесори': { День: 6000, Тиждень: 42000, Місяць: 180000 },
+      'Планшети': { День: 6400, Тиждень: 44800, Місяць: 192000 }
+    };
+    return profits[type][period] || 0;
   };
 
   const handleReportTypeChange = (e) => {
@@ -159,7 +48,8 @@ const ReportButton = ({ text }) => {
   return (
     <>
       <button className='btn-custom' onClick={toggle}>
-        {text}
+        <img src='./report.avif' alt={text} />
+        <span className='btn-text'>{text}</span>
       </button>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Генерація звіту</ModalHeader>
@@ -190,12 +80,8 @@ const ReportButton = ({ text }) => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color='primary' onClick={handleGenerateReport}>
-            Генерувати
-          </Button>{' '}
-          <Button color='secondary' onClick={toggle}>
-            Скасувати
-          </Button>
+          <Button color='primary' onClick={handleGenerateReport}>Генерувати</Button>{' '}
+          <Button color='secondary' onClick={toggle}>Скасувати</Button>
         </ModalFooter>
       </Modal>
 
@@ -203,9 +89,7 @@ const ReportButton = ({ text }) => {
         <ModalHeader toggle={toggleResultModal}>Результат звіту</ModalHeader>
         <ModalBody>{resultMessage}</ModalBody>
         <ModalFooter>
-          <Button color='secondary' onClick={toggleResultModal}>
-            Закрити
-          </Button>
+          <Button color='secondary' onClick={toggleResultModal}>Закрити</Button>
         </ModalFooter>
       </Modal>
     </>

@@ -1,5 +1,3 @@
-// HeaderComponent.js
-
 import React from 'react';
 import { AiOutlineMail, AiOutlineGlobal, AiOutlineInfoCircle, AiOutlineUser, AiOutlineSetting, AiOutlineLogout } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -18,7 +16,7 @@ const HeaderComponent = () => {
             <div className='contact-info'>
               <div className='contact-item'>
                 <AiOutlineGlobal />
-                <span>Поставки зі всього світу</span>
+                <span>Поставки зі всього с</span>
               </div>
               <div className='contact-item'>
                 <AiOutlineMail />
@@ -46,7 +44,9 @@ const HeaderComponent = () => {
         <Link to='/' className='btn-home' style={{ backgroundImage: `url(${homeImage})` }}>
           <span className='btn-text'>На головну</span>
         </Link>
-        <ReportButton text="Оформити звіт" small />
+        <div className='report-button-container'>
+          <ReportButton text="Оформити звіт" small />
+        </div>
       </nav>
     </div>
   );

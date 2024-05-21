@@ -48,6 +48,7 @@ const ListComputerComponent = () => {
       <table className='table'>
         <thead>
           <tr>
+            <th>Нумерація</th>
             <th>Виробник</th>
             <th>Найменування моделі</th>
             <th>Ціна покупки</th>
@@ -57,12 +58,13 @@ const ListComputerComponent = () => {
           </tr>
         </thead>
         <tbody>
-          {computers.map((computer) => (
+          {computers.map((computer, index) => (
             <tr key={computer.id}>
+              <td>{index + 1}</td>
               <td>{computer.manufacturer}</td>
               <td>{computer.name}</td>
-              <td>{computer.bought_price}</td>
-              <td>{computer.selling_price}</td>
+              <td>{computer.bought_price.toFixed(1)}</td>
+              <td>{computer.selling_price.toFixed(1)}</td>
               <td>{computer.quantity_in_stock}</td>
               <td>
                 <button className='btn btn-info' onClick={() => updateComputer(computer.id)}>

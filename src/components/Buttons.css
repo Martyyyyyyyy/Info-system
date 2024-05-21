@@ -1,61 +1,59 @@
 .button-group {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 10px;
-  justify-items: center;
+  grid-template-columns: repeat(3, 1fr); /* Create 3 columns */
+  grid-gap: 20px; /* Add spacing between buttons */
+  justify-items: center; /* Center items in each column */
+  margin: 20px 0; /* Add margin to the button group */
 }
 
 .btn-custom {
   position: relative;
-  background-color: transparent; /* Transparent background */
-  border: none; /* No border */
-  color: white; /* White text */
-  padding: 0; /* No padding */
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px; /* Smaller font size */
-  font-weight: bold;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border-radius: 10px; /* Adjusted border-radius */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Hide overflow */
-  width: var(--btn-width, 150px); /* Adjustable width */
-  height: var(--btn-height, 150px); /* Adjustable height */
+  width: 100px; /* Adjust button width */
+  height: 100px; /* Adjust button height */
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden; /* Ensure text doesn't overflow */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-custom:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
 
 .btn-custom img {
-  width: 100%; /* Adjusted width */
-  height: 100%; /* Adjusted height */
-  border-radius: 10px; /* Adjusted border-radius */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the button */
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px; /* Match button's rounded corners */
 }
 
 .btn-custom .btn-text {
   position: absolute;
-  top: 50%;
+  bottom: 10px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  padding: 5px 10px; /* Adjusted padding */
-  border-radius: 5px; /* Adjusted border-radius */
-  font-size: 12px; /* Smaller font size for text */
+  transform: translateX(-50%);
+  width: 90%; /* Ensure text stays within button bounds */
+  text-align: center;
+  font-size: 0.8rem; /* Adjust font size */
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6); /* Add a slight background for better readability */
+  padding: 2px 5px;
+  border-radius: 5px;
+  display: none; /* Hide text by default */
 }
 
 .btn-custom:hover .btn-text {
-  opacity: 1; /* Show text on hover */
-}
-
-.btn-custom:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.custom-nav {
-  position: absolute;
-  top: 23px;
-  left: 700px;
-  background-color: transparent;
+  display: block; /* Show text on hover */
 }

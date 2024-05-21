@@ -47,7 +47,7 @@ const ReportButton = ({ text }) => {
 
   return (
     <>
-      <button className='btn-custom' onClick={toggle}>
+      <button className='btn-custom custom-button-size' onClick={toggle}>
         <img src='./report.avif' alt={text} />
         <span className='btn-text'>{text}</span>
       </button>

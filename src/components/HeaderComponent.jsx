@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import homeImage from './home.avif';
 import backgroundHeader from './backgroundHeader.avif';
 import profileImage from './profile.jpeg'; // Assume you have a profile image
+import reportImage from './report.avif'; // Import the image for the ReportButton
 import ReportButton from './ReportButton'; // Import ReportButton component
 import './Header.css';
 
@@ -16,7 +17,7 @@ const HeaderComponent = () => {
             <div className='contact-info'>
               <div className='contact-item'>
                 <AiOutlineGlobal />
-                <span>Поставки зі всього с</span>
+                <span>Поставки зі всього світу</span>
               </div>
               <div className='contact-item'>
                 <AiOutlineMail />
@@ -45,7 +46,7 @@ const HeaderComponent = () => {
           <span className='btn-text'>На головну</span>
         </Link>
         <div className='report-button-container'>
-          <ReportButton text="Оформити звіт" small />
+          <ReportButton text="Оформити звіт" style={{ backgroundImage: `url(${reportImage})` }} />
         </div>
       </nav>
     </div>

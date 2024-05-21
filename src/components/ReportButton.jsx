@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, FormGroup, Label, Input, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './ReportButton.css';
+import reportImage from './report.avif'; // Import the image for the ReportButton
 
 const ReportButton = ({ text }) => {
   const [modal, setModal] = useState(false);
@@ -47,8 +48,8 @@ const ReportButton = ({ text }) => {
 
   return (
     <>
-      <button className='btn-custom custom-button-size' onClick={toggle}>
-        <img src='./report.avif' alt={text} />
+      <button className='btn-custom custom-button-size' onClick={toggle}
+      style={{ backgroundImage: `url(${reportImage})` }}>
         <span className='btn-text'>{text}</span>
       </button>
       <Modal isOpen={modal} toggle={toggle}>

@@ -20,64 +20,64 @@ const AllDataComponent = () => {
           <button 
             className='btn-custom' 
             onClick={() => navigateTo('/desktopComputers')}
+            style={{ backgroundImage: `url('./desktop-computer.avif')` }}
           >
-            <img src='./desktop-computer.avif' alt="Настільні комп'ютери" />
             <span className='btn-text'>Настільні комп'ютери</span>
           </button>
           <button 
             className='btn-custom' 
             onClick={() => navigateTo('/inputDevices')}
+            style={{ backgroundImage: `url('./input-devices.avif')` }}
           >
-            <img src='./input-devices.avif' alt='Пристрої введення' />
             <span className='btn-text'>Пристрої введення</span>
           </button>
           <button 
             className='btn-custom' 
             onClick={() => navigateTo('/memoryDevices')}
+            style={{ backgroundImage: `url('./memory-devices.avif')` }}
           >
-            <img src='./memory-devices.avif' alt="Пристрої пам'яті" />
             <span className='btn-text'>Пристрої пам'яті</span>
           </button>
           <button 
             className='btn-custom' 
             onClick={() => navigateTo('/monitors')}
+            style={{ backgroundImage: `url('./monitors.avif')` }}
           >
-            <img src='./monitors.avif' alt='Монітори' />
             <span className='btn-text'>Монітори</span>
           </button>
           <button 
             className='btn-custom' 
             onClick={() => navigateTo('/notebooks')}
+            style={{ backgroundImage: `url('./notebooks.avif')` }}
           >
-            <img src='./notebooks.avif' alt='Ноутбуки' />
             <span className='btn-text'>Ноутбуки</span>
           </button>
           <button 
             className='btn-custom' 
             onClick={() => navigateTo('/powerUnits')}
+            style={{ backgroundImage: `url('./power-units.webp')` }}
           >
-            <img src='./power-units.webp' alt='Блоки живлення' />
             <span className='btn-text'>Блоки живлення</span>
           </button>
           <button 
             className='btn-custom' 
             onClick={() => navigateTo('/printers')}
+            style={{ backgroundImage: `url('./printers.avif')` }}
           >
-            <img src='./printers.avif' alt='Принтери' />
             <span className='btn-text'>Принтери</span>
           </button>
           <button 
             className='btn-custom' 
             onClick={() => navigateTo('/processors')}
+            style={{ backgroundImage: `url('./processors.avif')` }}
           >
-            <img src='./processors.avif' alt='Процесори' />
             <span className='btn-text'>Процесори</span>
           </button>
           <button 
             className='btn-custom' 
             onClick={() => navigateTo('/tablets')}
+            style={{ backgroundImage: `url('./tablets.avif')` }}
           >
-            <img src='./tablets.avif' alt='Планшети' />
             <span className='btn-text'>Планшети</span>
           </button>
         </div>
